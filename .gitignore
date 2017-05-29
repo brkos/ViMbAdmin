@@ -3,6 +3,7 @@
 .gitmodules
 .settings/
 .gitmodules
+.idea/
 *.DS_Store
 application/configs/application.ini
 application/configs/application.ini.old

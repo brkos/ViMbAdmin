@@ -30,7 +30,7 @@
     	</div>
 
         <h1>
-            Aliases {if isset( $domain ) && $domain }<small> for {$domain->getDomain()} {if $domain->getMaxAliases() != 0}({$domain->getAliasCount()}/{$domain->getMaxAliases()}){/if}</small>
+            Aliasy {if isset( $domain ) && $domain }<small> v {$domain->getDomain()} {if $domain->getMaxAliases() != 0}({$domain->getAliasCount()}/{$domain->getMaxAliases()}){/if}</small>
                 <a class="btn have-tooltip-below" id="show_all_aliases" title="Show All" href="{genUrl controller='alias' action='list' unset=1}{if $ima}/ima/1{/if}"><i class="icon-remove-circle"></i></a>
             {/if}
         </h1>
@@ -43,10 +43,10 @@
 <table id="list_table" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Address</th>
-            <th>Domain</th>
-            <th width="55">Active</th>
-            <th>Goto</th>
+            <th>Adresa</th>
+            <th>Doména</th>
+            <th width="55">Aktivní</th>
+            <th>Přesměrováno na</th>
             <th width="60"></th>
         </tr>
     </thead>

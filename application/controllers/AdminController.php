@@ -111,7 +111,7 @@ class AdminController extends ViMbAdmin_Controller_Action
             if( $form->getValue( 'welcome_email' ) )
             {
                 $mailer = $this->getMailer();
-                $mailer->setSubject( 'ViMbAdmin :: Your New Administrator Account' );
+                $mailer->setSubject( 'MailAdmin :: Váš nový Administrátorský účet' );
                 $mailer->addTo( $this->getTargetAdmin()->getUsername() );
                 $mailer->setFrom(
                     $this->_options['server']['email']['address'],
