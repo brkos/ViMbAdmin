@@ -43,29 +43,29 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="{genUrl}">ViMbAdmin{if not $hasIdentity} :: <em>Virtual Mailbox Administration</em>{/if}</a>
+                <a class="brand" href="{genUrl}">{if not $hasIdentity}UniWire :: {/if}MailAdmin</a>
 
                     <div class="nav-collapse">
                         {if $hasIdentity}
                             <ul class="nav">
                                 <li {if $controller eq 'domain'}class="active"{/if}>
-                                    <a href="{genUrl controller='domain'}">Domains</a>
+                                    <a href="{genUrl controller='domain'}">Domény</a>
                                 </li>
                                 <li {if $controller == 'mailbox' || $controller == 'calendar'}class="active"{/if}>
-                                    <a href="{genUrl controller='mailbox'}">Mailboxes</a>
+                                    <a href="{genUrl controller='mailbox'}">Schránky</a>
                                 </li>
                                 <li {if $controller eq 'alias'}class="active"{/if}>
-                                    <a href="{genUrl controller='alias'}">Aliases</a>
+                                    <a href="{genUrl controller='alias'}">Aliasy</a>
                                 </li>
                                 <li {if $controller eq 'archive'}class="active"{/if}>
-                                    <a href="{genUrl controller='archive'}">Archives</a>
+                                    <a href="{genUrl controller='archive'}">Archivované</a>
                                 </li>
                                 <li {if $controller eq 'log'}class="active"{/if}>
-                                    <a href="{genUrl controller='log'}">Logs</a>
+                                    <a href="{genUrl controller='log'}">Logy</a>
                                 </li>
                                 {if $hasIdentity and $user->isSuper()}
                                     <li {if $controller eq 'admin'}class="active"{/if}>
-                                        <a href="{genUrl controller='admin'}" >Administrators</a>
+                                        <a href="{genUrl controller='admin'}" >Administrátoři</a>
                                     </li>
                                 {/if}
 
@@ -74,26 +74,18 @@
                                     </li> *}
 
                                 <li>
-                                    <a id="your_password" href="{genUrl controller='admin' action='password' aid=$user->getId()}">Password</a>
-                                </li>
-                                 <li {if $action eq 'about'}class="active"{/if}>
-                                    <a href="http://www.vimbadmin.net/" target="_blank">About</a>
+                                    <a id="your_password" href="{genUrl controller='admin' action='password' aid=$user->getId()}">Heslo</a>
                                 </li>
                             </ul>
                             <ul class="nav pull-right">
                                 <li>
-                                    <a href="{genUrl controller='auth' action='logout'}">Logout</a>
+                                    <a href="{genUrl controller='auth' action='logout'}">Odhlásit se</a>
                                 </li>
                             </ul>
                         {else}
-                            <ul class="nav">
-                                <li {if $action eq 'about'}class="active"{/if}>
-                                    <a href="http://www.vimbadmin.net/">About</a>
-                                </li>
-                            </ul>
                             <ul class="nav pull-right">
                                 <li>
-                                    <a href="{genUrl controller='auth' action='login'}">Login</a>
+                                    <a href="{genUrl controller='auth' action='login'}">Přihlásit se</a>
                                 </li>
                             </ul>
                         {/if}

@@ -45,7 +45,7 @@ class ViMbAdmin_Form_Admin_Password extends ViMbAdmin_Form
      *  Minimum password length
      * @var int Minimum password length
      */
-    private $minPasswordLength = 8;
+    private $minPasswordLength = 6;
 
     public function init( $options = null )
     {

@@ -33,12 +33,12 @@
     <thead>
         <tr>
             <th>Email</th>
-            <th>Name</th>
+            <th>Jméno</th>
             {if isset($options.defaults.list_size.disabled) && !$options.defaults.list_size.disabled}
-                <th>Size ({$size_multiplier})</th>
+                <th>Velikost ({$size_multiplier})</th>
             {/if}
-            <th>Domain</th>
-            <th width="55">Active</th>
+            <th>Doména</th>
+            <th width="55">Aktivní</th>
             <th width="140"></th>
         </tr>
     </thead>
@@ -52,8 +52,9 @@
                     {if $mbox.maildir_size}
                         {assign var=mdir_size value=($mbox.maildir_size/$multiplier)|string_format:"%.2f"}
                         <a href="#" data-sizes="{$mbox.size_at->format('d/m/Y H:i:s')}|{$mbox.homedir_size}|{$mbox.maildir_size}|{$multiplier}|{$size_multiplier}|{$mbox.quota}" id="dir-size-{$mbox.id}">{$mdir_size}</a>
+                         / {($mbox.quota/$multiplier)|string_format:"%.1f"}
                     {else}
-                        0
+                        0 / {($mbox.quota/$multiplier)|string_format:"%.1f"}
                     {/if}
                 </td>
             {/if}

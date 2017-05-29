@@ -3,7 +3,7 @@
 echo NOTES ONLY - RUN REQUIRED COMMANDS MANUALLY!!
 exit
 
-sudo /etc/init.d/memcached restart
+sudo service memcached restart
 rm ../doctrine2/xml/*
 cp ~/Shared/orm/ViMbAdmin/xml/*xml ../doctrine2/xml/
 ./doctrine2-cli.php orm:generate-entities ../application/
