@@ -93,7 +93,8 @@ defaults.server_side.pagination.domain.max_result_cnt = 500
 ; must be one of these: 10, 25, 50, 100
 defaults.table.entries = 50
 
-
+;; Enable or disable display of Domain name column. Default : enabled
+defaults.list_domain.disabled = false
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -395,10 +396,25 @@ vimbadmin_plugins.AccessPermissions.type.SIEVE = "SIEVE"
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Allow admins to force that for a mailbox/domain basic aliases are existing
+; If a new mailbox is created the system will check if the aliases are existing, if not they are created.
 
+vimbadmin_plugins.MailboxAutomaticAliases.disabled = true
 
+; These aliases should always exist, it is not recommened to delete it
+vimbadmin_plugins.MailboxAutomaticAliases.defaultAliases[] = "postmaster"
+vimbadmin_plugins.MailboxAutomaticAliases.defaultAliases[] = "abuse"
 
+; These aliases are optional, but it recommended to not remove them
+vimbadmin_plugins.MailboxAutomaticAliases.defaultAliases[] = "hostmaster"
+vimbadmin_plugins.MailboxAutomaticAliases.defaultAliases[] = "webmaster"
 
+; Define this if emails should be forwarded to a fixed address instead of the first mailbox address of the domain
+;vimbadmin_plugins.MailboxAutomaticAliases.defaultMapping.postmaster = "postmaster@example.net"
+;vimbadmin_plugins.MailboxAutomaticAliases.defaultMapping.abuse = "abuse@example.net"
+;vimbadmin_plugins.MailboxAutomaticAliases.defaultMapping.hostmaster = "hostmaster@example.net"
+;vimbadmin_plugins.MailboxAutomaticAliases.defaultMapping.webmaster = "webmaster@example.net"
 
 
 
@@ -443,7 +459,7 @@ vimbadmin_plugins.DirectoryEntry.disabled_elements.GivenName                = fa
 vimbadmin_plugins.DirectoryEntry.disabled_elements.Sn                       = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.DisplayName              = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.Initials                 = false
-vimbadmin_plugins.DirectoryEntry.disabled_elements.BusinesCategory          = false
+vimbadmin_plugins.DirectoryEntry.disabled_elements.BusinessCategory         = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.EmployeeType             = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.Title                    = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.DepartmentNumber         = false
@@ -458,7 +474,7 @@ vimbadmin_plugins.DirectoryEntry.disabled_elements.Mobile                   = fa
 vimbadmin_plugins.DirectoryEntry.disabled_elements.Pager                    = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.FacsimileTelephoneNumber = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.HomePostalAddress        = false
-vimbadmin_plugins.DirectoryEntry.disabled_elements.LabeledUri               = false
+vimbadmin_plugins.DirectoryEntry.disabled_elements.LabeledURI               = false
 vimbadmin_plugins.DirectoryEntry.disabled_elements.Manager                  = false
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -576,7 +592,7 @@ appnamespace = "ViMbAdmin"
 
 temporary_directory = APPLICATION_PATH "/../var/tmp"
 
-pluginPaths.OSS_Resource = APPLICATION_PATH "/../vendor/opensolutions/oss-framework/src/OSS/Resource"
+pluginPaths.OSS_Resource = APPLICATION_PATH "/../library/OSS/Resource"
 pluginPaths.ViMbAdmin_Resource = APPLICATION_PATH "/../library/ViMbAdmin/Resource"
 
 mini_js = 1
@@ -654,7 +670,7 @@ resources.smarty.compiled  = APPLICATION_PATH "/../var/templates_c"
 resources.smarty.cache     = APPLICATION_PATH "/../var/cache"
 resources.smarty.config    = APPLICATION_PATH "/configs/smarty"
 resources.smarty.plugins[] = APPLICATION_PATH "/../library/ViMbAdmin/Smarty/functions"
-resources.smarty.plugins[] = APPLICATION_PATH "/../vendor/opensolutions/oss-framework/src/OSS/Smarty/functions"
+resources.smarty.plugins[] = APPLICATION_PATH "/../library/OSS/Smarty/functions"
 resources.smarty.plugins[] = APPLICATION_PATH "/../vendor/smarty/smarty/libs/plugins"
 resources.smarty.plugins[] = APPLICATION_PATH "/../vendor/smarty/smarty/libs/sysplugins"
 resources.smarty.debugging = 0
